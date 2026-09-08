@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) CERN OHL-P V2.0
+# This file is distributed under the same license as the BrailleRap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BrailleRap 6.x.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-29 12:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../firstembossingpage.rst:2
+msgid "Embosser votre première page de Braille"
+msgstr ""
+
+#: ../../firstembossingpage.rst:5
+msgid "BrailleRap est une machine qui se pilote en G-CODE, pour embosser du braille il faut tout d'abord traduire le texte en Braille. Il existe 3 solutions pour traduire le Braille : L'application AccessBrailleRap https://github.com/braillerap/AccessBrailleRAP/releases L'application BrailleRap en ligne https://crocsg.github.io/BrailleRap/ L'application NatBraille http://natbraille.free.fr"
+msgstr ""
+
+#: ../../firstembossingpage.rst:12
+msgid "Utilisation de l'application AccessBrailleRap"
+msgstr ""
+
+#: ../../firstembossingpage.rst:13
+msgid "Utiliser le bouton \"Paramêtres\" pour accéder à l'écran de paramétrage"
+msgstr ""
+
+#: ../../firstembossingpage.rst:18
+msgid "Choisisser la table Braille de votre choix, le port de communication pour piloter BrailleRAP, et la langue de l'application"
+msgstr ""
+
+#: ../../firstembossingpage.rst:23
+msgid "Utiliser le bouton \"Saisie\" pour accéder à l'écran de saisie du texte Entrer le texte de votre choix, vous pouvez utiliser le copier coller pour utiliser un texte existant (page web, document word ...)"
+msgstr ""
+
+#: ../../firstembossingpage.rst:32
+msgid "Utiliser le bouton \"Impression\" pour accéder à l'écran de d'impression Sélectionner la page que vous souhaitez embosser avec les boutons \"Page précédente\" et \"Page suivante\". Pour embosser le texte, installer une feuille de papier dans BrailleRAP et utiliser le bouton \"Imprimer\""
+msgstr ""
+
+#: ../../firstembossingpage.rst:42
+msgid "Utilisation de l'application BrailleRap"
+msgstr ""
+
+#: ../../firstembossingpage.rst:44
+msgid "Aller sur la page https://crocsg.github.io/BrailleRap/"
+msgstr ""
+
+#: ../../firstembossingpage.rst:49
+msgid "Entrer votre texte à l'endroit indiqué, et télécharger ensuite le fichier GCODE contenant les instructions pour l'embosseuse"
+msgstr ""
+
+#: ../../firstembossingpage.rst:54
+msgid "Vous pouvez ensuite utiliser un logiciel comme **cura** ou **pronterface** pour envoyer le fichier GCODE à l'imprimante"
+msgstr ""
+
+#: ../../firstembossingpage.rst:59
+msgid "Configuration NatBraille"
+msgstr ""
+
+#: ../../firstembossingpage.rst:61
+msgid "Compiler les programmes dans le repertoire NatBrailleTools du projet"
+msgstr ""
+
+#: ../../firstembossingpage.rst:63
+msgid "Dans les options générales NatBraille, utiliser **TbFr2007** pour la table braille, Encodage document noir **Automtique**, Encodage document braille **Windows1252**"
+msgstr ""
+
+#: ../../firstembossingpage.rst:68
+msgid "Dans les options d'embossage, utiliser **TbFr2007** pour la table braille pour l'embossage"
+msgstr ""
+
+#: ../../firstembossingpage.rst:70
+msgid "Activer l'option **utiliser une commande systeme pour l'embossage**"
+msgstr ""
+
+#: ../../firstembossingpage.rst:72
+msgid "le paramêtre  pour commande d'impression est : **java -jar d:\\\\usr\\\\home\\\\logger\\\\BrailleLogger.jar $f | java -jar d:\\\\usr\\\\home\\\\logger\\\\gcodestreamer.jar COM4 250000** en modifiant eventuellement les repertoires d'installation des programmes COM4 est le port serie utilisé pour communiquer avec l'imprimante"
+msgstr ""
+
+#: ../../firstembossingpage.rst:80
+msgid "Dans les options de mise en page, indiquer 31 et 26 dans le nombre de caracter par ligne et le nombre de lignes par page"
+msgstr ""

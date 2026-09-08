@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) CERN OHL-P V2.0
+# This file is distributed under the same license as the BrailleRap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BrailleRap 6.x.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-29 12:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../bom.rst:2
+msgid "Liste du matériel"
+msgstr ""
+
+#: ../../bom.rst:5
+msgid "Découpe laser"
+msgstr ""
+
+#: ../../bom.rst:8
+#: ../../bom.rst:36
+msgid "Pour BrailleRAP"
+msgstr ""
+
+#: ../../bom.rst:9
+msgid "2 planches de contreplaqué 5mm en 600mm x 400mm."
+msgstr ""
+
+#: ../../bom.rst:11
+#: ../../bom.rst:20
+msgid "Les fichiers au format dxf sont disponibles ici"
+msgstr ""
+
+#: ../../bom.rst:10
+#: ../../bom.rst:19
+msgid "https://github.com/BrailleRap/BrailleRap/tree/master/lasercut"
+msgstr ""
+
+#: ../../bom.rst:12
+msgid "lasercut/Braillerap_v6-5-1_600x400-planche1.svg"
+msgstr ""
+
+#: ../../bom.rst:13
+msgid "lasercut/Braillerap_v6-5-1-600x400-planche2.svg"
+msgstr ""
+
+#: ../../bom.rst:17
+#: ../../bom.rst:55
+msgid "Pour BrailleRAP XL"
+msgstr ""
+
+#: ../../bom.rst:18
+msgid "2 planches de contreplaqué 5mm en 900mm x 400mm."
+msgstr ""
+
+#: ../../bom.rst:21
+msgid "lasercut/brapxl-v6.6-planche1_900x400.svg"
+msgstr ""
+
+#: ../../bom.rst:22
+msgid "lasercut/brapxl-v6-6-planche2_900x400.svg"
+msgstr ""
+
+#: ../../bom.rst:26
+msgid "Pièces imprimées"
+msgstr ""
+
+#: ../../bom.rst:27
+msgid "Toutes les pièces sont imprimées en ABS, 50% de remplissage, 3 périmètres extérieurs. Nous utilisons le filament eSun ABS Natural."
+msgstr ""
+
+#: ../../bom.rst:29
+msgid "Les fichiers au format stl sont ici : https://github.com/braillerap/BrailleRap/tree/master/printed_parts"
+msgstr ""
+
+#: ../../bom.rst:33
+msgid "Pièces mécaniques"
+msgstr ""
+
+#: ../../bom.rst:39
+#: ../../bom.rst:58
+#: ../../bom.rst:76
+#: ../../bom.rst:112
+msgid "Qty"
+msgstr ""
+
+#: ../../bom.rst:39
+#: ../../bom.rst:58
+#: ../../bom.rst:76
+#: ../../bom.rst:112
+msgid "Type"
+msgstr ""
+
+#: ../../bom.rst:41
+#: ../../bom.rst:60
+#: ../../bom.rst:66
+#: ../../bom.rst:67
+msgid "4"
+msgstr ""
+
+#: ../../bom.rst:41
+msgid "Rail de guidage linéaire ( diamètre 8mm ) **330 mm** length"
+msgstr ""
+
+#: ../../bom.rst:42
+#: ../../bom.rst:43
+#: ../../bom.rst:61
+#: ../../bom.rst:62
+#: ../../bom.rst:82
+#: ../../bom.rst:87
+#: ../../bom.rst:89
+#: ../../bom.rst:115
+#: ../../bom.rst:116
+#: ../../bom.rst:118
+#: ../../bom.rst:120
+#: ../../bom.rst:121
+msgid "1"
+msgstr ""
+
+#: ../../bom.rst:42
+msgid "Rail de guidage linéaire ( diamètre 8mm ) **365 mm** length"
+msgstr ""
+
+#: ../../bom.rst:43
+#: ../../bom.rst:62
+msgid "Rail de guidage linéaire ( diamètre 8mm ) **100 mm** length"
+msgstr ""
+
+#: ../../bom.rst:45
+#: ../../bom.rst:64
+#: ../../bom.rst:81
+#: ../../bom.rst:84
+#: ../../bom.rst:85
+#: ../../bom.rst:114
+#: ../../bom.rst:117
+#: ../../bom.rst:119
+msgid "2"
+msgstr ""
+
+#: ../../bom.rst:45
+msgid "630 mm de courroie GT2"
+msgstr ""
+
+#: ../../bom.rst:47
+#: ../../bom.rst:48
+#: ../../bom.rst:80
+msgid "3"
+msgstr ""
+
+#: ../../bom.rst:47
+#: ../../bom.rst:66
+msgid "Joints torique 15.1 mm diamètre intérieur 20.5 mm de diamètre extérieur (15.1 x 20.5 x 2.7)"
+msgstr ""
+
+#: ../../bom.rst:48
+#: ../../bom.rst:67
+msgid "Ressorts tendeurs de courroie GT2"
+msgstr ""
+
+#: ../../bom.rst:50
+#: ../../bom.rst:68
+#: ../../bom.rst:93
+msgid "..."
+msgstr ""
+
+#: ../../bom.rst:60
+msgid "Rail de guidage linéaire ( diamètre 8mm ) **470 mm** length"
+msgstr ""
+
+#: ../../bom.rst:61
+msgid "Rail de guidage linéaire ( diamètre 8mm ) **505 mm** length"
+msgstr ""
+
+#: ../../bom.rst:64
+msgid "960 mm de courroie GT2"
+msgstr ""
+
+#: ../../bom.rst:73
+msgid "Pièces communes BrailleRAP XL / BrailleRAP"
+msgstr ""
+
+#: ../../bom.rst:78
+msgid "6"
+msgstr ""
+
+#: ../../bom.rst:78
+msgid "RJ4JP-01-08 palier linéaire Polymer"
+msgstr ""
+
+#: ../../bom.rst:80
+msgid "GT2 poulie 20 dents pour axe 8mm"
+msgstr ""
+
+#: ../../bom.rst:81
+msgid "GT2 poulie libre 20 dents axe 3mm (avec roulement à billes)"
+msgstr ""
+
+#: ../../bom.rst:82
+msgid "GT2 poulie 20 dents pour axe 5mm"
+msgstr ""
+
+#: ../../bom.rst:84
+msgid "KP08  pallier horizontal pour rail linéaire 8mm"
+msgstr ""
+
+#: ../../bom.rst:85
+msgid "KFL08 pallier vertical pour rail linéaire 8mm"
+msgstr ""
+
+#: ../../bom.rst:87
+msgid "Accouplement d'axe 5mm/8mm"
+msgstr ""
+
+#: ../../bom.rst:89
+msgid "Courroie GT2 fermée 200 mm"
+msgstr ""
+
+#: ../../bom.rst:91
+msgid "10"
+msgstr ""
+
+#: ../../bom.rst:91
+msgid "Colliers de serrage 2.5 x 160 mm"
+msgstr ""
+
+#: ../../bom.rst:98
+msgid "Carte controleur"
+msgstr ""
+
+#: ../../bom.rst:99
+msgid "En fonction de vos souhaits vous pouvez utiliser au choix :"
+msgstr ""
+
+#: ../../bom.rst:101
+msgid "Une carte MKS GEN 1.4 (Mega2560) et 2 drivers DRV8825 https://github.com/makerbase-mks"
+msgstr ""
+
+#: ../../bom.rst:102
+msgid "Une carte MKS GEN-L (Mega2560) et 2 drivers DRV8825 https://github.com/makerbase-mks"
+msgstr ""
+
+#: ../../bom.rst:103
+msgid "Une carte MKS TinyBee (ESP32) et 2 drivers TMC2209 https://github.com/makerbase-mks"
+msgstr ""
+
+#: ../../bom.rst:105
+msgid "D'autres configuration sont possibles, mais vous devrez effectuer la configuration du firmware vous même"
+msgstr ""
+
+#: ../../bom.rst:109
+msgid "Electronique"
+msgstr ""
+
+#: ../../bom.rst:114
+msgid "Moteurs Nema 17 40 N/cm 40mm avec câble (17HS4401)."
+msgstr ""
+
+#: ../../bom.rst:115
+msgid "Electro-aimant *tau-826b* 12V 2A."
+msgstr ""
+
+#: ../../bom.rst:116
+msgid "MKS GEN 1.4 ou carte compatible Ramps 1.4 ou MKS GEN L 2.1 https://github.com/makerbase-mks."
+msgstr ""
+
+#: ../../bom.rst:117
+msgid "drivers DRV8825 avec radiateur."
+msgstr ""
+
+#: ../../bom.rst:118
+msgid "1N4004  diode de roue libre ou equivalent (12V 2A) (pour MKS GEN 1.4 uniquement)."
+msgstr ""
+
+#: ../../bom.rst:119
+msgid "Commutateurs fin de course cablés conformément à la documentation. (OMRON `SS-5GL <https://omronfs.omron.com/en_US/ecb/products/pdf/en-ss.pdf>`_ ou compatible)"
+msgstr ""
+
+#: ../../bom.rst:120
+msgid "Embase Alimentation jack 2.5mm."
+msgstr ""
+
+#: ../../bom.rst:121
+msgid "Alimentation 12v 6A jack 2.5mm."
+msgstr ""
