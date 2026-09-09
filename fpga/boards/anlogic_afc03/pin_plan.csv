@@ -1,0 +1,15 @@
+signal_group,target,physical_interface,package_pins,io_voltage,status
+clock_100mhz,PH1A90,differential_input,,,verify_schematic
+clock_25mhz,PH1A90,single_ended_input,,,verify_schematic
+reset,PH1A90,board_reset,,,verify_polarity_and_synchronization
+mic_audio,PH1A90,external_I2S_or_PDM,,,select_module_and_FMC_routing
+rk_control,PH1A90_RK3576J,pending_BSP,,,verify_driver_and_bidirectional_channel
+rk_frames,PH1A90_RK3576J,PCIe2_x1_or_MIPI_4lane,,,verify_BSP_IP_and_endpoint_roles
+camera_bringup,RK3576J,USB_UVC,,,verify_Linux_device
+camera_final,PH1A90,CSI_via_verified_expansion,,,pending_camera_and_receiver_IP
+speaker,RK3576J,ALSA_audio_output,,,verify_codec_and_amplifier
+x_step_dir_enable,external_driver,PL_GPIO,,,verify_pinout_and_enable_polarity
+y_step_dir_enable,external_driver,PL_GPIO,,,verify_pinout_and_enable_polarity
+punch_enable,external_power_stage,PL_GPIO,,,verify_pinout_and_enable_polarity
+limits,PH1A90,synchronized_GPIO,,,verify_voltage_and_polarity
+estop,PH1A90_and_power_stage,independent_stop,,,verify_hardware_stop_path

@@ -1,0 +1,20 @@
+{
+  "profile_version": 1,
+  "board": "MLK-F3P-DR1M90G",
+  "device": "DR1M90GEG400",
+  "status": "legacy_inactive_replaced_by_afc03",
+  "source": "2026 Anlogic FPGA contest guide, PDF pages 12-13",
+  "pl_clock_hz": 100000000,
+  "core_top": "blind_printer_core",
+  "board_top": null,
+  "vendor_tool_version": null,
+  "ps_required_for_basic_demo": false,
+  "npu_used_in_basic_demo": false,
+  "planned_transport": "external_usb_uart_to_verified_pl_gpio",
+  "planned_uart_baud": 115200,
+  "io_voltage_v": null,
+  "pin_constraints_verified": false,
+  "physical_motion_implemented": false,
+  "bitstream_ready": false,
+  "active_target": false
+}

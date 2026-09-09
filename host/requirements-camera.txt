@@ -1,0 +1,2 @@
+# Optional PC capture adapter only; simulation has no third-party dependencies.
+opencv-python>=4.8,<5

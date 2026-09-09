@@ -1,100 +1,63 @@
+# make-blind-great-FPGA
 
-<figure>
-<img src="https://github.com/braillerap/BrailleRap/blob/master/docs/IMG/github_logo.png" alt="BrailleRAP image" style="width:75%; align:center;">
-</figure>
+基于 BrailleRAP 机构的语音交互盲文打印机，当前目标改为 **AFC03：RK3576J + 安路 PH1A90SEG324**。
 
-# BrailleRAP
+目标流程：说“开始” → 提示放书 → 说“完成” → 板上拍照/OCR → FPGA 转盲文并排版 → 说“打印” → FPGA 控制机械打点。最终运行不依赖电脑，暂不做连续 ASR。
 
-## Introduction
-Based on a [RepRap 3d printer controller](https://reprap.org/wiki/RepRap), [BrailleRAP](https://github.com/braillerap/BrailleRap) is an open hardware device to emboss Braille text and/or Vector graphics. You can use software like [AccessBrailleRAP](https://github.com/braillerap/AccessBrailleRAP) or [DesktopBrailleRAP](https://github.com/braillerap/DesktopBrailleRAP) to translate text in Braille and build tangible documents with the device. Some tools like [OpenStreetTouch](https://github.com/braillerap/OpenStreetTouch) can help you extract data from [OpenStreetMap](https://www.openstreetmap.org) to build public transport guide or small area city map.
+> 当前是可运行模拟和测试的开发框架，**不是可烧录的完整产品**。OCR 权重/前后处理、AMS 权重/算子、中文规则、板间驱动、板级顶层和机械控制还需接入。没有将电脑模拟改名为板上推理。
 
-BrailleRAP now exist in 2 different sizes: **BrailleRAP** and **BrailleRAP XL**. 
-- **BrailleRAP** emboss sheet up to 210x297 mm. Lightweight, a completed device will weight less than 5 kg and fit in cabin travel case. 
-- **BrailleRAP XL** emboss sheet up to 297x420 mm. A larger surface if you need more space to emboss vector graphics. 
+## 两颗芯片的分工
 
-<figure>
-<img src="https://github.com/braillerap/BrailleRap/blob/master/docs/IMG/github_logo2.jpg" alt="BrailleRAP and BrailleRAP XL image" style="width:75%; align:center;">
-</figure>
+| 位置 | 产品目标 | 当前代码 |
+| --- | --- | --- |
+| RK3576J，ARM64 Linux + NPU | 摄像头服务、OCR 检测/识别、短录音播放、日志 | 新增板端服务、异步 OCR 调度、RKNNLite 生命周期和 PP-OCR 接入接口、WAV 播放器 |
+| PH1A90，可编程逻辑 PL | AMS 多关键词推理、主流程、中英文盲文、页面排版、XY/打点、限位 | 保留可移植流程及基础英文 RTL；KWS/中文为禁用槽位，运动输出保持禁用 |
+| PH1A90 图像通路 | 后续摄像头接入 PL，做预处理并向 RK 传帧 | 接口与开发阶段规划，未实现图像处理 IP |
+| Windows 电脑 | 编写程序、模型准备、下载 FPGA、调试与模拟 | 继续可用，不要求安装双系统 |
 
-<figure>
-<img src="https://github.com/braillerap/BrailleRap/blob/master/docs/IMG/brap_sample.jpg" alt="Tangible documents examples made on BrailleRAP" style="width:75%; align:center;">
-</figure>
-<img src="https://github.com/braillerap/BrailleRap/blob/master/docs/IMG/brap_sample2.jpg" alt="Tangible documents examples made on BrailleRAP" style="width:75%; align:center;">
-</figure>
+摄像头先接 **RK 的 USB** 跑通板载 OCR；之后按厂家 BSP 接入 PL 图像通路。数字麦克风目标接 **PH1A90**，板载 MIC/音频口不能默认归 PL。OCR 在 RK NPU，AMS 在安路 PL，两者分别提供实测证据。
 
-You may also find some interest in some 'side' projects to extend your BrailleRAP usage :
+## 现在怎么测试
 
+在 Windows PowerShell 中，从仓库根目录执行，Python 3.9+，模拟无需额外依赖：
 
-  [OpenStreetTangible](https://github.com/braillerap/OpenStreetTangible), a tangible subway map of the Rennes city in France. A custom build to demonstrate the ability of OpenStreetTouch and BrailleRAP to build accessible map.
+```powershell
+cd "D:\HuaweiMoveData\Users\fyx06\Desktop\BrailleRap-master\BrailleRap-master"
+python board_app/run.py --simulate --text "Hello FPGA 123"
+python board_app/run.py --check
+python -m unittest discover -s board_app/tests -v
+```
 
-  If you built a **BrailleRAP XL** maybe you want to carry it easily. The transport bag for the **BrailleRAP XL** is available [here](https://github.com/braillerap/braillerap-bag). Many thanks to [pasfou](https://github.com/pasfou) for this brilliant idea and realization.
+第一条演示 **RK 服务 + 模拟 PH1A90** 的 v2 消息和工作流。关键词和打印完成均为明确标注的手工模拟事件；参考盲文仍在电脑计算。输入中文会在当前模拟 PL 中被明确拒绝，不能据此声称中文转换完成。
 
-  <figure>
-    <img src="https://github.com/braillerap/BrailleRap/blob/master/docs/IMG/brapbag1.jpg" alt="A custom bag for BrailleRAP XL" style="width:75%; align:center;">
-  </figure>
+第二条检查默认 AFC03 配置，并列出缺少的模型和桥接；检查成功不代表硬件准备完成。旧电脑模拟与 12 项回归测试保留在 [host](host/README.md)。
 
-  **En_Bosse** a [Handitechlab Inria](https://project.inria.fr/handitechlabinria/fr/) project to process ultrasound imagery. The project AIM to emboss ultrasound imagery to make it available for visual impaired parents. [Em_Bosse](https://gitlab.inria.fr/handitechlabinria/enbosse/en_bosse/-/blob/main/README.md?ref_type=heads).
+完整板端使用方法见 [board_app/README.md](board_app/README.md)，上板步骤见 [Linux 部署说明](docs/fpga/afc03_linux.md)。
 
-  **Carnet_de_sante** a [Handitechlab Inria](https://project.inria.fr/handitechlabinria/fr/) project to make children growing health data available for visual impaired peoples. [Carnet_de_sante](https://gitlab.inria.fr/handitechlabinria/enbosse/carnet_de_sante/-/blob/main/README.md?ref_type=heads).
+## 工程目录
 
-  **Tactipix** a [Handitechlab Inria](https://project.inria.fr/handitechlabinria/fr/) starting collection of children illustrated books with audio resources (in french). The illustrations can be embossed on BrailleRAP. [Tactipix](https://handitechlabinria.gitlabpages.inria.fr/tactipix/)
-  
+```text
+board_app/                  新增 RK3576J Linux 服务与 AFC03 模拟入口
+  config/afc03.json          当前默认目标、摄像头、OCR、提示音、板间桥接配置
+  afc03_runtime/            事件服务、v2 协议、RKNN 接入、录音播放
+  tests/                    无硬件回归测试
+fpga/rtl/                   与具体板卡解耦的 PL 应用核心
+fpga/boards/anlogic_afc03/   当前 AFC03 配置和待确认引脚表
+fpga/boards/anlogic_dr1/     旧 DR1 方案留档，不是当前目标
+fpga/sim/                   RTL 静态检查与行为测试台
+host/                       原电脑模拟、英文参考和可复用摄像头/Tesseract 适配器
+models/ocr/                 RK3576 PP-OCR 检测+识别模型接入说明
+models/kws/                 PH1A90 AMS 模型交接清单
+docs/fpga/                  架构、接口、部署顺序和验证记录
+README_UPSTREAM.md          原 BrailleRAP 说明
+MarlinBraille/              原 MKS/AVR 固件参考
+printed_parts/、lasercut/   原机构文件
+```
 
-## OSHWA Certification
+[架构与 FPGA 主体性](docs/fpga/architecture.md) · [通信/RTL 接口](docs/fpga/interfaces.md) · [开发路线](docs/fpga/roadmap.md) · [验证记录](docs/fpga/validation.md)
 
-BrailleRAP is [OSHWA](https:oshwa.org) open source hardware certified.
-<a href="https://certification.oshwa.org/fr000027.html">
-<img src="docs/IMG/BrailleRAP-cert-oshwa.png" alt="OSHWA certificate" width="75%"/>
-</a>
+当前按安路自主命题组织功能。AFC03 是选题三的推荐平台，但仅实现 OCR + KWS + 盲文打印不能自动满足选题三的全部要求，详见架构说明。
 
-## Building manual
-The building manual translation files are available [on codeberg weblate host](https://translate.codeberg.org/projects/braillerap-building-manual/) . If you need the building manual in your language, feel free to contribute on codeberg/weblate.    
+## 上游与许可
 
-<a href="https://translate.codeberg.org/engage/braillerap-building-manual/">
-<img src="https://translate.codeberg.org/widget/braillerap-building-manual/multi-auto.svg" alt="User manual translation status" width="75%"/>
-</a>
-
-## Funding
-
-This project is funded through [NGI0 Entrust](https://nlnet.nl/entrust), a fund established by [NLnet](https://nlnet.nl) with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program. Learn more at the [NLnet project page](https://nlnet.nl/project/BrailleRAP).
-
-[<img src="https://nlnet.nl/logo/banner.png" alt="NLnet foundation logo" width="20%" />](https://nlnet.nl)
-[<img src="https://nlnet.nl/image/logos/NGI0_tag.svg" alt="NGI Zero Logo" width="20%" />](https://nlnet.nl/entrust)
-
-
-## BrailleRap 6.x Building Manual
-
-Embosseuse Braille Open Source DIY
-
-[![Documentation Status](https://readthedocs.org/projects/braillerap/badge/?version=latest&style=plastic)](https://braillerap.readthedocs.io/fr/latest/?badge=latest)
-
-La documentation complete [est disponible ici braillerap.readthedocs.io](https://braillerap.readthedocs.io/fr/latest/index.html).
-
-==========================================================================
-
-DIY Open Source Braille embosser
-
-[![Documentation Status](https://readthedocs.org/projects/braillerap-en/badge/?version=latest&style=plastic)](https://braillerap-en.readthedocs.io/en/latest/index.html)
-
-The full documentation [is available at braillerap-en.readthedocs.io](https://braillerap-en.readthedocs.io/en/latest/index.html).
-
-## Repository Structure
-
-### `docs/`
-The source file for readthedoc documentation, viewable at [braillerap.readthedocs.io](https://braillerap.readthedocs.io/fr/latest/index.html).
-
-### `lasercut/`
-SVG/DXF file for laser cut
-
-### `MarlinBraille/`
-BrailleRAP Firmware for MKS GEN 1.4 & MKS GEN L 2.1.
-
-The firmware is already configured for DRV8825 stepper drivers.
-
-### `printed_parts/`
-STL files for 3D printed parts.
-
-There is an xlsx (3D printed parts excel board.xlsx) files that detail the parts to print.
-
-### `NatBrailleTools/`
-Java source code for NatBraille BrailleRAP driver. This is obsolete now. Consider using AccessBrailleRAP (https://github.com/braillerap/AccessBrailleRAP) instead.
+本项目基于 [BrailleRAP](https://github.com/braillerap/BrailleRap)，保留机构、文档和原固件。原说明见 [README_UPSTREAM.md](README_UPSTREAM.md)，许可见 [LICENCE.txt](LICENCE.txt) 及各组件声明。新增框架代码尚未另行指定许可；不改变上游组件自身许可。

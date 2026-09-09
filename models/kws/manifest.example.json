@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "interface_only_no_trained_model",
+  "architecture_name": "AMS_user_model_pending",
+  "deployment_target": "anlogic_ph1a90_pl",
+  "board_profile": "afc03",
+  "device": "PH1A90SEG324",
+  "weights_file": null,
+  "weights_sha256": null,
+  "sample_rate_hz_proposed": 16000,
+  "sample_format_proposed": "signed_pcm16_mono",
+  "window_samples_proposed": 16000,
+  "features": null,
+  "quantization": null,
+  "class_order": ["silence", "unknown", "start", "complete", "print", "cancel", "stop"],
+  "keyword_event_ids": {"start": 1, "complete": 2, "print": 3, "cancel": 4, "stop": 5},
+  "confidence_threshold": null,
+  "consecutive_windows_required": null,
+  "refractory_ms": null,
+  "software_validation_report": null,
+  "rtl_equivalence_report": null,
+  "board_validation_report": null
+}

@@ -1,0 +1,17 @@
+signal,direction,purpose,package_pin,bank,voltage_v,status
+clk_pl,input,100 MHz PL clock,,,,verify_in_schematic
+reset_n,input,physical reset polarity unverified,,,,verify_in_schematic
+uart_rx,input,external USB UART TX to PL RX,,,,verify_in_schematic
+uart_tx,output,PL TX to external USB UART RX,,,,verify_in_schematic
+mic_bclk,output,digital microphone bit clock,,,,interface_not_selected
+mic_ws,output,digital microphone word select,,,,interface_not_selected
+mic_sd,input,digital microphone sample data,,,,interface_not_selected
+x_step,output,X step driver input,,,,driver_not_implemented
+x_dir,output,X direction driver input,,,,driver_not_implemented
+y_step,output,Y step driver input,,,,driver_not_implemented
+y_dir,output,Y direction driver input,,,,driver_not_implemented
+driver_enable,output,external motor driver enable polarity TBD,,,,driver_not_implemented
+punch_gate,output,isolated MOSFET gate stage input,,,,driver_not_implemented
+x_limit,input,X endstop,,,,polarity_and_conditioning_TBD
+y_limit,input,Y endstop,,,,polarity_and_conditioning_TBD
+estop,input,emergency stop status,,,,independent_power_cut_required

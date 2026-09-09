@@ -11,3 +11,21 @@ NatBrailleTools/bin/hs_err_pid2756.log
 *.log
 NatBrailleTools/gcodestreamer/.settings/org.eclipse.jdt.core.prefs
 
+# FPGA application development outputs
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+host/captures/
+host/output/
+fpga/build/
+*.vcd
+*.fst
+.env
+
+# AFC03 local runtime/model artifacts
+board_app/config/*.local.json
+board_app/captures/
+board_app/output/
+models/ocr/weights/
+models/kws/weights/

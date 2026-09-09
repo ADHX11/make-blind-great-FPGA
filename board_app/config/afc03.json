@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "platform": "afc03",
+  "rk_device": "rk3576",
+  "fpga_device": "PH1A90SEG324",
+  "board_profile": "../../fpga/boards/anlogic_afc03/board.json",
+  "transport": {
+    "factory": null,
+    "control_protocol": "afc03-jsonl-v2",
+    "physical_link": "pending_vendor_bsp",
+    "frame_link_candidates": ["pcie2_x1", "mipi_4lane"]
+  },
+  "camera": {"index": 0, "route": "rk_usb_bringup"},
+  "ocr": {
+    "backend": "rknn",
+    "target": "rk3576",
+    "det_model": "../../models/ocr/weights/ppocr_det_rk3576.rknn",
+    "rec_model": "../../models/ocr/weights/ppocr_rec_rk3576.rknn",
+    "charset": "../../models/ocr/weights/ppocr_keys_v1.txt",
+    "pipeline_factory": null,
+    "language": "eng+chi_sim",
+    "tesseract": "tesseract"
+  },
+  "prompts": {
+    "enabled": false,
+    "directory": "../assets/prompts",
+    "player": "aplay"
+  }
+}

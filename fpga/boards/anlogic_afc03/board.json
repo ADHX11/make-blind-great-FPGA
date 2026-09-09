@@ -1,0 +1,26 @@
+{
+  "profile_version": 1,
+  "platform": "afc03",
+  "board": "MLK-AFH03-AFC03-2GB LPDDR4X+32GB EMMC",
+  "device": "PH1A90SEG324",
+  "rk_device": "RK3576J",
+  "status": "active_target_from_user_guide_not_pin_verified",
+  "core_top": "blind_printer_core",
+  "board_top": null,
+  "vendor_tool_version": null,
+  "pl_input_clocks_from_guide": [
+    {"hz": 100000000, "type": "differential", "pins": null},
+    {"hz": 25000000, "type": "single_ended", "pin": null}
+  ],
+  "core_clock_hz": null,
+  "rk_linux_required": true,
+  "ocr_target": "rk3576_npu",
+  "kws_target": "ph1a90_pl",
+  "rk_fpga_link_candidates": ["MIPI_4LANE", "PCIE2.0x1"],
+  "selected_physical_link": null,
+  "rk_fpga_bridge_implemented": false,
+  "pin_constraints_verified": false,
+  "io_voltage_v": null,
+  "physical_motion_implemented": false,
+  "bitstream_ready": false
+}

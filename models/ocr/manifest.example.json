@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "integration_template_no_models_no_accuracy_validation",
+  "platform": "afc03",
+  "target": "rk3576",
+  "pipeline": "ppocr_detection_crop_reading_order_recognition_ctc",
+  "model_family_version": null,
+  "det_model": null,
+  "rec_model": null,
+  "charset": null,
+  "sha256": {"det_model": null, "rec_model": null, "charset": null},
+  "det_input_shape": null,
+  "rec_input_shape": null,
+  "input_color_order": null,
+  "input_dtype_and_layout": null,
+  "normalization_in_conversion_or_runtime": null,
+  "quantization_and_calibration_data": null,
+  "toolkit2_version": null,
+  "lite2_runtime_version": null,
+  "bsp_and_npu_driver_version": null,
+  "pipeline_factory": null,
+  "board_accuracy_latency_memory_report": null
+}
